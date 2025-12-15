@@ -5,7 +5,6 @@ import AllTasks from './pages/Tasks'
 import CompletedTasks from './pages/CompletedTasks'
 
 function App() {
-
   return (
     <>
       <Toaster position="top-right" />

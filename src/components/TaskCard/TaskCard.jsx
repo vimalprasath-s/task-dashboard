@@ -7,9 +7,7 @@ export default function TaskCard({ task, onEdit, onDelete }) {
       <p>{task.description}</p>
 
       <div className="meta">
-        <span className={`status ${task.status}`}>
-          {task.status.replace('-', ' ')}
-        </span>
+        <span className={`status ${task.status}`}>{task.status.replace('-', ' ')}</span>
         <span>Due: {task.dueDate}</span>
       </div>
 
@@ -20,4 +18,3 @@ export default function TaskCard({ task, onEdit, onDelete }) {
     </div>
   )
 }
-

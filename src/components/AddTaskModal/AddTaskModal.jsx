@@ -40,8 +40,8 @@ export default function AddTaskModal({ task, onClose }) {
         title,
         description,
         status,
-        dueDate
-      }
+        dueDate,
+      },
     })
 
     toast.success(isEdit ? 'Task updated' : 'Task added')
@@ -56,16 +56,13 @@ export default function AddTaskModal({ task, onClose }) {
         <label>
           Title <span className="required">*</span>
         </label>
-        <input value={title} onChange={e => setTitle(e.target.value)} />
+        <input value={title} onChange={(e) => setTitle(e.target.value)} />
 
         <label>Description</label>
-        <textarea
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        />
+        <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
 
         <label>Status</label>
-        <select value={status} onChange={e => setStatus(e.target.value)}>
+        <select value={status} onChange={(e) => setStatus(e.target.value)}>
           <option value="pending">Pending</option>
           <option value="in-progress">In Progress</option>
           <option value="completed">Completed</option>
@@ -74,17 +71,11 @@ export default function AddTaskModal({ task, onClose }) {
         <label>
           Due Date <span className="required">*</span>
         </label>
-        <input
-          type="date"
-          value={dueDate}
-          onChange={e => setDueDate(e.target.value)}
-        />
+        <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
 
         <div className="actions">
           <button onClick={onClose}>Cancel</button>
-          <button onClick={handleSubmit}>
-            {isEdit ? 'Update' : 'Add'}
-          </button>
+          <button onClick={handleSubmit}>{isEdit ? 'Update' : 'Add'}</button>
         </div>
       </div>
     </div>

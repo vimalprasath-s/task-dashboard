@@ -8,9 +8,9 @@ import { TaskProvider } from './context/TaskContext.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <TaskProvider>
-      <App />
-    </TaskProvider>
+      <TaskProvider>
+        <App />
+      </TaskProvider>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 )
