@@ -1,29 +1,29 @@
 import { useState } from 'react'
-import { toast } from 'react-hot-toast'
 import Tabs from '../components/Tabs/Tabs'
 import TaskList from '../components/TaskList/TaskList'
 import AddTaskModal from '../components/AddTaskModal/AddTaskModal'
 import DeleteConfirm from '../components/DeleteConfirm/DeleteConfirm'
 import { useTasks } from '../context/TaskContext'
 import SearchFilter from '../components/SearchFilter/SearchFilter'
+import Chip from '../components/Chip/Chip'
+import './Tasks.css'
+import useTaskActions from '../hooks/useTaskActions'
 
 export default function AllTasks() {
-  const { state, dispatch } = useTasks()
+  const { state } = useTasks()
+
+  const { editingTask, setEditingTask, deletingTask, setDeletingTask, confirmDelete } =
+    useTaskActions()
 
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [editingTask, setEditingTask] = useState(null)
-  const [deletingTask, setDeletingTask] = useState(null)
   const [searchText, setSearchText] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [sortBy, setSortBy] = useState('none')
 
-  function handleDeleteConfirm() {
-    dispatch({
-      type: 'DELETE_TASK',
-      payload: deletingTask.id,
-    })
-    toast.success('Task deleted')
-    setDeletingTask(null)
+  const counts = {
+    pending: state.tasks.filter((t) => t.status === 'pending').length,
+    inProgress: state.tasks.filter((t) => t.status === 'in-progress').length,
+    completed: state.tasks.filter((t) => t.status === 'completed').length,
   }
 
   const filteredTasks = state.tasks.filter((task) => {
@@ -42,12 +42,14 @@ export default function AllTasks() {
 
   return (
     <div className="app-container">
+      <h2 className="title">Task Management Dashboard</h2>
       <div className="tab-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Tabs />
         <button className="primary" onClick={() => setIsModalOpen(true)}>
           Add Task
         </button>
       </div>
+      <Chip counts={counts} />
 
       <SearchFilter
         searchText={searchText}
@@ -71,7 +73,7 @@ export default function AllTasks() {
       {deletingTask && (
         <DeleteConfirm
           taskTitle={deletingTask.title}
-          onConfirm={handleDeleteConfirm}
+          onConfirm={confirmDelete}
           onCancel={() => setDeletingTask(null)}
         />
       )}

@@ -2,8 +2,14 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .app-container {
-  max-width: 900px;
+  max-width: 750px;
   margin: 0 auto;
   padding: 24px 16px;
 }
@@ -12,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 button {

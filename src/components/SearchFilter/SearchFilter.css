@@ -2,6 +2,7 @@
   display: flex;
   gap: 12px;
   margin: 16px 0;
+  flex-wrap: wrap;
 }
 
 .search-filter input {
@@ -10,5 +11,5 @@
 }
 
 .search-filter select {
-  padding: 8px;
+  padding: 4px 8px;
 }

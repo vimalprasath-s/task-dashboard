@@ -24,10 +24,22 @@
 }
 
 label {
-  font-weight: 500;
+  color: #5b5959;
 }
 
 .required {
   color: red;
   margin-left: 2px;
+}
+
+.modal label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal select,
+input,
+textarea {
+  padding: 4px 6px;
+  font-size: 14px;
 }
