@@ -1,10 +1,18 @@
+import { Toaster } from 'react-hot-toast'
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import AllTasks from './pages/Tasks'
+import CompletedTasks from './pages/CompletedTasks'
 
 function App() {
 
   return (
     <>
-      <h1>Task Dashboard</h1>
+      <Toaster position="top-right" />
+      <Routes>
+        <Route path="/" element={<AllTasks />} />
+        <Route path="/completed" element={<CompletedTasks />} />
+      </Routes>
     </>
   )
 }

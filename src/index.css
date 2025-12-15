@@ -1,3 +1,47 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.tab-container {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f9fafb;
+}
+
+button.primary {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+button.primary:hover {
+  background: #1d4ed8;
+}
+
+button.danger {
+  background: #dc2626;
+  color: white;
+  border: none;
+}
+
+button.danger:hover {
+  background: #b91c1c;
+}
